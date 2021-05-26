@@ -1,0 +1,41 @@
+.navbarimage {
+    width: 90px;
+    height: 70px;
+}
+
+.formularioimg {
+    width: 400px;
+}
+
+@media screen and (max-width: 600px) {
+    .formularioimg {
+        width: 250px;
+    }
+}
+
+.formulario_superheroe {
+    height: 1000px;
+    background-image: url(/assets/img/fondocomic.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+footer,
+nav {
+    background: black;
+}
+
+.imagenfooter {
+    height: 60px;
+}
+
+.contenedor_superior,
+.contenedor_inferior {
+    background-image: url(/assets/img/desplegable.png);
+    height: 50px;
+}
+
+.imagen_desplegable {
+    background-image: url(/assets/img/Captura.JPG);
+    height: 350px;
+}

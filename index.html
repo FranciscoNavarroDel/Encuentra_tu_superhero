@@ -13,6 +13,8 @@
 </head>
 
 <body>
+
+    <!-- Creamos el header de la pagina  -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="#"><img class="navbarimage" src="assets/img/sh2.jpg" alt=""></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,21 +30,23 @@
         </div>
     </nav>
 
+    <!-- creamos la seccion formulario -->
     <section class="formulario_superheroe">
         <form>
-            <div class="text-center container pt-5">
+            <!-- imagen y texto del formulario -->
+            <div class="text-center container pt-md-5 pt-3">
                 <img class="formularioimg" src="assets/img/sh1.jpg" alt="">
                 <h1>Encuentra tu SuperHero</h1>
                 <h4>Ingresa el número del SuperHero a buscar</h4>
             </div>
             <div class="container">
+                <!-- input del numero que se ingresa -->
                 <div class="form-group row">
-                    <!-- <label for="inputEmail3" class="col-sm-4 col-form-label text-md-right">Email</label> -->
                     <div class="offset-md-3 col-sm-6">
-                        <input type="text" class="form-control" id="inputEmail3">
+                        <input type="text" class="form-control" id="superheronumber">
                     </div>
                 </div>
-
+                <!-- botton del formulario -->
                 <div class="form-group row">
                     <div class="offset-md-5 offset-4 col-2   col-md-2 text-md-center">
                         <button type="submit" class="btn btn-primary">Buscar</button>
@@ -50,14 +54,26 @@
                 </div>
             </div>
         </form>
+
+        <!-- se crean dos container para colocar la informacion del superhero y estadisticas -->
         <div class="container">
             <div class="row text-center">
-                <div class="offset-2 col-4">
+                <div class="col- 12 offset-md-2 col-md-4">
                     <div class="contenedor_superior"></div>
-                    <div class="imagen_desplegable"></div>
-                    <div class="contenedor_inferior"></div>
+                    <div class="imagen_desplegable">
+                        <div class="container">
+                            <img class="imagendata py-1" src="">
+                            <p class="nombre"></p>
+                            <p class="conexiones text-left"></p>
+                            <p class="work text-left"></p>
+                            <p class="altura text-left"></p>
+                            <p class="peso text-left"></p>
+                            <p class="biografia text-left"></p>
+                        </div>
+                    </div>
+                    <div class="contenedor_inferior "></div>
                 </div>
-                <div class="col-4">
+                <div class="col-12 col-md-4 d-none d-md-block">
                     <div class="contenedor_superior"></div>
                     <div class="imagen_desplegable"></div>
                     <div class="contenedor_inferior"></div>
@@ -68,10 +84,12 @@
 
     </section>
 
+
     <footer class=" text-center">
         <img class="imagenfooter" src="assets/img/batmetal_footer.jpg">
     </footer>
 
+    <script src="assets/js/index.js"></script>
 
 </body>
 

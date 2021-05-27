@@ -1,7 +1,12 @@
+/* navbar */
+
 .navbarimage {
     width: 90px;
     height: 70px;
 }
+
+
+/* imagen formulario */
 
 .formularioimg {
     width: 400px;
@@ -13,12 +18,44 @@
     }
 }
 
+
+/* fondo de la pagina */
+
 .formulario_superheroe {
-    height: 1000px;
+    height: 1200px;
     background-image: url(/assets/img/fondocomic.jpg);
     background-repeat: no-repeat;
-    background-position: center;
+    background-size: cover;
 }
+
+
+/* contenedores de informacion superhero */
+
+.contenedor_superior,
+.contenedor_inferior {
+    background-image: url(/assets/img/desplegable.png);
+    height: 20px;
+}
+
+@media screen and (max-width: 600px) {
+    .contenedor_superior,
+    .contenedor_inferior {
+        height: 20px;
+    }
+}
+
+.imagen_desplegable {
+    background-image: url(/assets/img/Captura.JPG);
+    height: 600px;
+    overflow-y: auto;
+}
+
+.imagendata {
+    height: 150px;
+}
+
+
+/* footer */
 
 footer,
 nav {
@@ -27,15 +64,4 @@ nav {
 
 .imagenfooter {
     height: 60px;
-}
-
-.contenedor_superior,
-.contenedor_inferior {
-    background-image: url(/assets/img/desplegable.png);
-    height: 50px;
-}
-
-.imagen_desplegable {
-    background-image: url(/assets/img/Captura.JPG);
-    height: 350px;
 }

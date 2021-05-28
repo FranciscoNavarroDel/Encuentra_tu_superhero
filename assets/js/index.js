@@ -79,6 +79,7 @@ jQuery.fn.extraerinfo = function() {
             } else {
                 alert(error)
                 $(".imagen_desplegable").hide();
+                $(".superheroinfo").hide()
 
             }
         },

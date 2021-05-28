@@ -9,6 +9,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap" rel="stylesheet">
     <title>Encuentra tu SuperHeroe</title>
 </head>
 
@@ -52,26 +54,41 @@
             </div>
         </form>
         <!-- se crean dos container para colocar la informacion del superhero y estadisticas -->
-        <div class="container">
+
+    </section>
+
+    <section class="superheroinfo">
+
+
+
+        <div class="container py-3">
             <div class="row text-center">
                 <div class="col- 12 offset-md-3 col-md-6">
-                    <div class="contenedor_superior"></div>
+                    <div class="contenedor_superior text-center text-white">
+                        <p class="encontrado"></p>
+                    </div>
                     <div class="imagen_desplegable ">
+                        <div class="card container bg-transparent">
+                            <img class="card-img-top imagendata py-1" alt="superhero">
+                            <div class="card-body">
+                                <h5 class="nombre"></h5>
+                                <p class="card-text conexiones text-left "></p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item publicado text-left bg-transparent"></li>
+                                <li class="list-group-item work text-left bg-transparent"></li>
+                                <li class="list-group-item primera_aparicion text-left bg-transparent"></li>
+                                <li class="list-group-item altura text-left bg-transparent"></li>
+                                <li class="list-group-item peso text-left bg-transparent"></li>
+                                <li class="list-group-item biografia text-left bg-transparent"></li>
+                                <li class="list-group-item alianzas text-left bg-transparent"></li>
+                            </ul>
+                        </div>
                         <div class="container">
-                            <img class="imagendata py-1" src="">
-                            <p class="nombre"></p>
-                            <p class="conexiones text-left"></p>
-                            <p class="publicado text-left"></p>
-                            <p class="work text-left"></p>
-                            <p class="primera_aparicion text-left"></p>
-                            <p class="altura text-left"></p>
-                            <p class="peso text-left"></p>
-                            <p class="biografia text-left"></p>
-                            <p class="alianzas text-left"></p>
-                            <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+                            <div id="chartContainer" class="mt-3"></div>
                         </div>
                     </div>
-                    <div class="contenedor_inferior "></div>
+                    <div class="contenedor_inferior"></div>
                 </div>
             </div>
         </div>

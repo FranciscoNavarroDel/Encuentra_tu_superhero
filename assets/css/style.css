@@ -1,3 +1,8 @@
+body {
+    font-family: 'Odibee Sans', cursive;
+}
+
+
 /* navbar */
 
 .navbarimage {
@@ -22,7 +27,7 @@
 /* fondo de la pagina */
 
 .formulario_superheroe {
-    height: 1200px;
+    height: 600px;
     background-image: url(/assets/img/fondocomic.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -31,17 +36,12 @@
 
 /* contenedores de informacion superhero */
 
-.contenedor_superior,
-.contenedor_inferior {
-    background-image: url(/assets/img/desplegable.png);
-    height: 20px;
+.superheroinfo {
+    background: #000;
 }
 
-@media screen and (max-width: 600px) {
-    .contenedor_superior,
-    .contenedor_inferior {
-        height: 20px;
-    }
+.encontrado {
+    font-size: 30px;
 }
 
 .imagen_desplegable {
@@ -51,7 +51,25 @@
 }
 
 .imagendata {
-    height: 150px;
+    height: 250px;
+    width: 50%;
+    margin-left: 25%;
+}
+
+@media screen and (max-width: 600px) {
+    .imagendata {
+        height: 250px;
+        width: 100%;
+        margin-left: 0%
+    }
+}
+
+
+/* canvas chart */
+
+#chartContainer {
+    height: 370px;
+    width: 100%;
 }
 
 

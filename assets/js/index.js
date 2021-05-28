@@ -7,12 +7,14 @@ jQuery.fn.extraerinfo = function() {
         success: function(data) {
             let { response, error } = data
 
+
+
             if (response == "success") {
 
                 let {
                     powerstats,
                     work: { occupation: ocupacion },
-                    connections: { connections: conexiones },
+                    connections: { "group-affiliation": conexiones },
                     image,
                     name
                 } = data;
@@ -21,7 +23,7 @@ jQuery.fn.extraerinfo = function() {
                 let { combat, durability, intelligence, power, speed, strength } = powerstats
 
                 let status = [combat, durability, intelligence, power, speed, strength]
-
+                $(".encontrado").text("SuperHero Encontrado")
                 $(".imagendata").attr(`src`, `${image.url}`);
                 $(".nombre").text(`Nombre: ${name}`);
                 $(".conexiones").text(`Conexiones: ${conexiones}`);
@@ -46,7 +48,12 @@ jQuery.fn.extraerinfo = function() {
                     animationEnabled: true,
                     title: {
                         text: `Estadísticas de Poder para ${name}`,
-                        fontSize: 20
+                        fontSize: 20,
+                        fontFamily: 'Odibee Sans'
+                    },
+                    legend: {
+                        fontSize: 12,
+                        fontFamily: 'Odibee Sans'
                     },
                     backgroundColor: "",
                     data: [{

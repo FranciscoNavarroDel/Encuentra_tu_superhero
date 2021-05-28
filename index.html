@@ -13,7 +13,6 @@
 </head>
 
 <body>
-
     <!-- Creamos el header de la pagina  -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="#"><img class="navbarimage" src="assets/img/sh2.jpg" alt=""></a>
@@ -25,11 +24,9 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="#">SuperHero <span class="sr-only">(current)</span></a>
                 </li>
-
             </ul>
         </div>
     </nav>
-
     <!-- creamos la seccion formulario -->
     <section class="formulario_superheroe">
         <form>
@@ -54,42 +51,38 @@
                 </div>
             </div>
         </form>
-
         <!-- se crean dos container para colocar la informacion del superhero y estadisticas -->
         <div class="container">
             <div class="row text-center">
-                <div class="col- 12 offset-md-2 col-md-4">
+                <div class="col- 12 offset-md-3 col-md-6">
                     <div class="contenedor_superior"></div>
-                    <div class="imagen_desplegable">
+                    <div class="imagen_desplegable ">
                         <div class="container">
                             <img class="imagendata py-1" src="">
                             <p class="nombre"></p>
                             <p class="conexiones text-left"></p>
+                            <p class="publicado text-left"></p>
                             <p class="work text-left"></p>
+                            <p class="primera_aparicion text-left"></p>
                             <p class="altura text-left"></p>
                             <p class="peso text-left"></p>
                             <p class="biografia text-left"></p>
+                            <p class="alianzas text-left"></p>
+                            <div id="chartContainer" style="height: 370px; width: 100%;"></div>
                         </div>
                     </div>
                     <div class="contenedor_inferior "></div>
                 </div>
-                <div class="col-12 col-md-4 d-none d-md-block">
-                    <div class="contenedor_superior"></div>
-                    <div class="imagen_desplegable"></div>
-                    <div class="contenedor_inferior"></div>
-                </div>
             </div>
         </div>
-
-
     </section>
-
 
     <footer class=" text-center">
         <img class="imagenfooter" src="assets/img/batmetal_footer.jpg">
     </footer>
 
     <script src="assets/js/index.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
 </body>
 

@@ -1,35 +1,3 @@
-jQuery.fn.grafico = function() {
-
-    var chart = new CanvasJS.Chart("chartContainer", {
-        theme: "light2", // "light1", "light2", "dark1", "dark2"
-        exportEnabled: true,
-        animationEnabled: true,
-        title: {
-            text: "Desktop Browser Market Share in 2016"
-        },
-        data: [{
-            type: "pie",
-            startAngle: 25,
-            toolTipContent: "<b>{label}</b>: {y}%",
-            showInLegend: "true",
-            legendText: "{label}",
-            indexLabelFontSize: 16,
-            indexLabel: "{label} - {y}%",
-            dataPoints: [
-                { y: 51.08, label: "Chrome" },
-                { y: 27.34, label: "Internet Explorer" },
-                { y: 10.62, label: "Firefox" },
-                { y: 5.02, label: "Microsoft Edge" },
-                { y: 4.07, label: "Safari" },
-                { y: 1.22, label: "Opera" },
-                { y: 0.44, label: "Others" }
-            ]
-        }]
-    });
-    chart.render();
-}
-
-
 jQuery.fn.extraerinfo = function() {
     var element = this;
     $.ajax({
@@ -37,24 +5,82 @@ jQuery.fn.extraerinfo = function() {
         url: "https://superheroapi.com/api.php/10159431839884446/" + element.val(),
         dataType: "json",
         success: function(data) {
-            let { powerstats, biography, appearance, work, connections, image, name } = data
-            $(".imagendata").attr(`src`, `${image.url}`);
-            $(".nombre").text(`Nombre: ${name}`);
-            $(".conexiones").text(`Conexiones: ${connections["group-affiliation"]}`);
-            $(".work").text(`ocupacion: ${work["occupation"]}`);
-            $(".altura").text(`Altura: ${appearance.height[0]}, ;${appearance.height[1]}`)
-            $(".peso").text(`Peso: ${appearance.weight[0]}, ${appearance.weight[1]}`);
-            $(".biografia").text(`Alter-ego: ${biography["alter-egos"]} /   Primera aparicion: ${biography["first-appearance"]}`);
+            let { response, error } = data
 
-            powerstats.grafico()
+            if (response == "success") {
 
+                let {
+                    powerstats,
+                    work: { occupation: ocupacion },
+                    connections: { connections: conexiones },
+                    image,
+                    name
+                } = data;
+                let { biography: { publisher: publicado, "first-appearance": aparicion, "alter-egos": alterego, aliases: aliases } } = data
+                let { appearance: { height: altura, weight: peso } } = data
+                let { combat, durability, intelligence, power, speed, strength } = powerstats
+
+                let status = [combat, durability, intelligence, power, speed, strength]
+
+                $(".imagendata").attr(`src`, `${image.url}`);
+                $(".nombre").text(`Nombre: ${name}`);
+                $(".conexiones").text(`Conexiones: ${conexiones}`);
+                $(".publicado").text(`Publicado por: ${publicado}`)
+                $(".work").text(`Ocupacion: ${ocupacion}`);
+                $(".primera_aparicion").text(`Primera aparicion: ${aparicion}`)
+                $(".altura").text(`Altura: ${altura[0]}, ;${altura[1]}`)
+                $(".peso").text(`Peso: ${peso[0]}, ${peso[1]}`);
+                $(".biografia").text(`Alter-ego: ${alterego}`);
+
+                let aliados = ""
+                aliados += aliases.map((aliado) => aliado);
+                $(".alianzas").text(`Alianzas: ${aliados}`);
+
+                status.map((element, index) => {
+                    if (element == "null") status[index] = 0
+                })
+
+                var chart = new CanvasJS.Chart("chartContainer", {
+                    theme: "light1",
+
+                    animationEnabled: true,
+                    title: {
+                        text: `Estadísticas de Poder para ${name}`,
+                        fontSize: 20
+                    },
+                    backgroundColor: "",
+                    data: [{
+                        type: "pie",
+                        startAngle: 0,
+                        toolTipContent: "<b>{label}</b>: {y}",
+                        showInLegend: "true",
+                        legendText: "{label}: {y}",
+                        indexLabelFontSize: 12,
+                        indexLabel: "{label}",
+                        dataPoints: [
+                            { y: status[0], label: "Combat" },
+                            { y: status[1], label: "Durability" },
+                            { y: status[2], label: "Intelligence" },
+                            { y: status[3], label: "Power" },
+                            { y: status[4], label: "Speed" },
+                            { y: status[5], label: "Strength" }
+                        ]
+                    }]
+                });
+                chart.render();
+
+            } else {
+                alert(error)
+                $(".imagen_desplegable").hide();
+            }
+        },
+        error: function(error) {
+            alert(error)
         }
-    })
+    });
 };
 
-
-
-
+$(".imagen_desplegable").hide();
 
 $(document).ready(function() {
     $("form").submit(function(event) {
@@ -62,6 +88,13 @@ $(document).ready(function() {
         if (Number($("#superheronumber").val())) {
             $("#superheronumber").extraerinfo();
             $("h4").text("Ingresa el número del SuperHero a buscar").css("color", "black")
-        } else $("h4").text("El valor ingresado no es un número").css("color", "red");
+            $(".imagen_desplegable").slideDown('slow');
+        } else if (Number($("#superheronumber").val()) == 0) {
+            $("h4").text("El valor ingresado debe ser mayor a 0").css("color", "red");
+            $(".imagen_desplegable").hide("slow")
+        } else {
+            $("h4").text("El valor ingresado no es un número").css("color", "red");
+            $(".imagen_desplegable").hide("slow")
+        };
     })
 });

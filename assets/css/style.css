@@ -33,6 +33,15 @@ body {
     background-size: cover;
 }
 
+@media screen and (max-width: 600px) {
+    .formulario_superheroe {
+        height: 600px;
+        background-image: url(../img/fondocomicreducido.png);
+        background-repeat: no-repeat;
+        background-size: center;
+    }
+}
+
 
 /* contenedores de informacion superhero */
 

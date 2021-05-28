@@ -77,10 +77,9 @@ jQuery.fn.extraerinfo = function() {
                 chart.render();
 
             } else {
-                alert(error)
                 $(".imagen_desplegable").hide();
                 $(".superheroinfo").hide()
-
+                alert(error)
             }
         },
         error: function(error) {

@@ -28,7 +28,7 @@ body {
 
 .formulario_superheroe {
     height: 600px;
-    background-image: url(/assets/img/fondocomic.jpg);
+    background-image: url(../img/fondocomic.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -45,7 +45,7 @@ body {
 }
 
 .imagen_desplegable {
-    background-image: url(/assets/img/Captura.JPG);
+    background-image: url(../img/Captura.JPG);
     height: 600px;
     overflow-y: auto;
 }

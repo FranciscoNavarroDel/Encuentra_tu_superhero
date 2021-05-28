@@ -79,6 +79,7 @@ jQuery.fn.extraerinfo = function() {
             } else {
                 alert(error)
                 $(".imagen_desplegable").hide();
+
             }
         },
         error: function(error) {
@@ -88,6 +89,7 @@ jQuery.fn.extraerinfo = function() {
 };
 
 $(".imagen_desplegable").hide();
+$(".superheroinfo").hide()
 
 $(document).ready(function() {
     $("form").submit(function(event) {
@@ -95,13 +97,18 @@ $(document).ready(function() {
         if (Number($("#superheronumber").val())) {
             $("#superheronumber").extraerinfo();
             $("h4").text("Ingresa el número del SuperHero a buscar").css("color", "black")
-            $(".imagen_desplegable").slideDown('slow');
+            $(".imagen_desplegable").slideDown(3000);
+            $(".superheroinfo").show()
         } else if (Number($("#superheronumber").val()) == 0) {
             $("h4").text("El valor ingresado debe ser mayor a 0").css("color", "red");
-            $(".imagen_desplegable").hide("slow")
+            $(".imagen_desplegable").hide(1000)
+            $(".encontrado").text("")
+            $(".superheroinfo").hide(1000)
         } else {
             $("h4").text("El valor ingresado no es un número").css("color", "red");
-            $(".imagen_desplegable").hide("slow")
+            $(".imagen_desplegable").hide(1000)
+            $(".encontrado").text("")
+            $(".superheroinfo").hide(1000)
         };
     })
 });

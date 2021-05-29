@@ -26,7 +26,7 @@ jQuery.fn.extraerinfo = function() {
                     image,
                     name
                 } = data;
-                let { biography: { publisher: publicado, "first-appearance": aparicion, "alter-egos": alterego, aliases: aliases } } = data
+                let { biography: { publisher: publicado, "first-appearance": aparicion, aliases: aliases } } = data
                 let { appearance: { height: altura, weight: peso } } = data
                 let { combat, durability, intelligence, power, speed, strength } = powerstats
 
@@ -42,7 +42,7 @@ jQuery.fn.extraerinfo = function() {
                 $(".primera_aparicion").text(`Primera aparicion: ${aparicion}`)
                 $(".altura").text(`Altura: ${altura[0]}, ;${altura[1]}`)
                 $(".peso").text(`Peso: ${peso[0]}, ${peso[1]}`);
-                $(".biografia").text(`Alter-ego: ${alterego}`);
+
 
                 // usamos un metodo map para pasar de un array de aliados a un string con los aliados del heroe
                 let aliados = ""

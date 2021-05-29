@@ -5,6 +5,10 @@ body {
 
 /* navbar */
 
+.nav_text {
+    font-size: 25px;
+}
+
 .navbarimage {
     width: 70px;
     height: 50px;
@@ -24,7 +28,7 @@ body {
 }
 
 
-/* fondo de la pagina */
+/* fondo del formulario de la pagina */
 
 .formulario_superheroe {
     height: 600px;

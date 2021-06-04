@@ -14,18 +14,10 @@ jQuery.fn.extraerinfo = function() {
             // y else en caso de que el valor devuelto por la id requerida sea error se realiza un alert indicando que el valor de la id no es valido
             if (response == "success") {
                 // se descomprime la informacion requerida para el super heroe
-                let {
-                    powerstats,
-                    work: { occupation: ocupacion },
-                    connections: { "group-affiliation": conexiones },
-                    image,
-                    name
-                } = data;
+                let { powerstats, work: { occupation: ocupacion }, connections: { "group-affiliation": conexiones }, image, name } = data;
                 let { biography: { publisher: publicado, "first-appearance": aparicion, aliases: aliases } } = data
                 let { appearance: { height: altura, weight: peso } } = data
-                let { combat, durability, intelligence, power, speed, strength } = powerstats
-                let status = [combat, durability, intelligence, power, speed, strength]
-                    // se transpasa la informacion al doom 
+                // se transpasa la informacion al DOM
                 $(".encontrado").text("SuperHero Encontrado")
                 $(".imagendata").attr(`src`, `${image.url}`);
                 $(".nombre").text(`Nombre: ${name}`);
@@ -39,11 +31,21 @@ jQuery.fn.extraerinfo = function() {
                 let aliados = ""
                 aliados += aliases.map((aliado) => aliado);
                 $(".alianzas").text(`Alianzas: ${aliados}`);
-                // utilizamos un metodo para modificar los valores null a 0 para que no produzca un error al ejecutar canvas
-                status.map((element, index) => {
-                        if (element == "null") status[index] = 0
-                    })
-                    // se utiliza canvas y se setean los valores y propiedades del gráfico
+
+
+                // extraemos y comprobamos los datos que se le pasara a canvas
+                // transformamos el objeto en un arreglo
+                let status = Object.entries(powerstats)
+                data_status = []
+                status.map((stats) => {
+                    if (stats[1] == "null") {
+                        stats[1] = 0
+                    }
+                    // pushemos los datos a data_status ordenados y transformados
+                    data_status.push({ y: stats[1], label: stats[0] })
+                })
+
+                // se utiliza canvas y se setean los valores y propiedades del gráfico
                 var chart = new CanvasJS.Chart("chartContainer", {
                     theme: "light1",
                     animationEnabled: true,
@@ -65,14 +67,7 @@ jQuery.fn.extraerinfo = function() {
                         legendText: "{label}: {y}",
                         indexLabelFontSize: 12,
                         indexLabel: "{label}",
-                        dataPoints: [
-                            { y: status[0], label: "Combat" },
-                            { y: status[1], label: "Durability" },
-                            { y: status[2], label: "Intelligence" },
-                            { y: status[3], label: "Power" },
-                            { y: status[4], label: "Speed" },
-                            { y: status[5], label: "Strength" }
-                        ]
+                        dataPoints: data_status
                     }]
                 });
                 chart.render();

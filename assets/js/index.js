@@ -41,6 +41,7 @@ jQuery.fn.extraerinfo = function() {
                     if (stats[1] == "null") {
                         stats[1] = 0
                     }
+
                     // pushemos los datos a data_status ordenados y transformados
                     data_status.push({ y: stats[1], label: stats[0] })
                 })

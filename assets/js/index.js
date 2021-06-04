@@ -32,7 +32,6 @@ jQuery.fn.extraerinfo = function() {
                 aliados += aliases.map((aliado) => aliado);
                 $(".alianzas").text(`Alianzas: ${aliados}`);
 
-
                 // extraemos y comprobamos los datos que se le pasara a canvas
                 // transformamos el objeto en un arreglo
                 let status = Object.entries(powerstats)

@@ -25,7 +25,7 @@ jQuery.fn.extraerinfo = function() {
                 $(".publicado").text(`Publicado por: ${publicado}`)
                 $(".work").text(`Ocupacion: ${ocupacion}`);
                 $(".primera_aparicion").text(`Primera aparicion: ${aparicion}`)
-                $(".altura").text(`Altura: ${altura[0]}, ;${altura[1]}`)
+                $(".altura").text(`Altura: ${altura[0]}, ${altura[1]}`)
                 $(".peso").text(`Peso: ${peso[0]}, ${peso[1]}`);
                 // usamos un metodo map para pasar de un array de aliados a un string con los aliados del heroe
                 let aliados = ""
@@ -34,14 +34,14 @@ jQuery.fn.extraerinfo = function() {
 
                 // extraemos y comprobamos los datos que se le pasara a canvas
                 // transformamos el objeto en un arreglo
-                let status = Object.entries(powerstats)
-                let data_status = []
-                status.map((stats) => {
-                    if (stats[1] == "null") {
-                        stats[1] = 0
+                let statssuperhero = Object.entries(powerstats)
+                let data_stats = []
+                statssuperhero.map((stat) => {
+                    if (stat[1] == "null") {
+                        stat[1] = 0
                     }
                     // pushemos los datos a data_status ordenados y transformados
-                    data_status.push({ y: stats[1], label: stats[0] })
+                    data_stats.push({ y: stat[1], label: stat[0] })
                 })
 
                 // se utiliza canvas y se setean los valores y propiedades del gráfico
@@ -66,7 +66,7 @@ jQuery.fn.extraerinfo = function() {
                         legendText: "{label}: {y}",
                         indexLabelFontSize: 12,
                         indexLabel: "{label}",
-                        dataPoints: data_status
+                        dataPoints: data_stats
                     }]
                 });
                 chart.render();

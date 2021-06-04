@@ -35,12 +35,11 @@ jQuery.fn.extraerinfo = function() {
                 // extraemos y comprobamos los datos que se le pasara a canvas
                 // transformamos el objeto en un arreglo
                 let status = Object.entries(powerstats)
-                data_status = []
+                let data_status = []
                 status.map((stats) => {
                     if (stats[1] == "null") {
                         stats[1] = 0
                     }
-
                     // pushemos los datos a data_status ordenados y transformados
                     data_status.push({ y: stats[1], label: stats[0] })
                 })

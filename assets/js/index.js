@@ -34,9 +34,9 @@ jQuery.fn.extraerinfo = function() {
 
                 // extraemos y comprobamos los datos que se le pasara a canvas
                 // transformamos el objeto en un arreglo
-                let status = Object.entries(powerstats)
-                let data_status = []
-                status.map((stats) => {
+                let stats = Object.entries(powerstats)
+                let data_stats = []
+                status.map((s) => {
                     if (stats[1] == "null") {
                         stats[1] = 0
                     }
@@ -66,7 +66,7 @@ jQuery.fn.extraerinfo = function() {
                         legendText: "{label}: {y}",
                         indexLabelFontSize: 12,
                         indexLabel: "{label}",
-                        dataPoints: data_status
+                        dataPoints: data_stats
                     }]
                 });
                 chart.render();

@@ -44,6 +44,7 @@ jQuery.fn.extraerinfo = function() {
                     data_status.push({ y: stats[1], label: stats[0] })
                 })
 
+
                 // se utiliza canvas y se setean los valores y propiedades del gráfico
                 var chart = new CanvasJS.Chart("chartContainer", {
                     theme: "light1",

@@ -36,7 +36,7 @@ jQuery.fn.extraerinfo = function() {
                 // transformamos el objeto en un arreglo
                 let stats = Object.entries(powerstats)
                 let data_stats = []
-                status.map((s) => {
+                stats.map((s) => {
                     if (stats[1] == "null") {
                         stats[1] = 0
                     }

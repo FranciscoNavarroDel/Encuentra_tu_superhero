@@ -15,7 +15,7 @@ jQuery.fn.extraerinfo = function() {
             if (response == "success") {
                 // se descomprime la informacion requerida para el super heroe
                 let { powerstats, work: { occupation: ocupacion }, connections: { "group-affiliation": conexiones }, image, name } = data;
-                let { biography: { publisher: publicado, "first-appearance": aparicion, aliases: aliases } } = data
+                let { biography: { publisher: publicado, "first-appearance": aparicion, aliases } } = data
                 let { appearance: { height: altura, weight: peso } } = data
                 // se transpasa la informacion al DOM
                 $(".encontrado").text("SuperHero Encontrado")
